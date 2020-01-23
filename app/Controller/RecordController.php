@@ -11,33 +11,30 @@
 			$this->setFlash('Listing Record page too slow, try to optimize it.');
 			
 			//$records = $this->Record->find('all');
-			//$this->set('records',$records);
+			$records = $this->Record->find('list', array(
+				'fields' => array('Record.id', 'Record.name'),
+				'order' => 'Record.id ASC',
+			));
 			
 			
-			/*$query  = "SELECT * FROM records LIMIT 10,20";
-			$recordTest = $this->Record->query($query);
-			$this->set('records', $recordTest);*/
-			
-			$this->set ('records', array());
+			$this->set('records',$records);
 			
 			$this->set('title',__('List Record'));
 		}
 		
-		public function getRecords(){
+/*		public function getRecords(){
 			//false auto render template
 			$this->autoRender = false;
 			
 			
-			/*$records = $this->Record->find('all', array(
+			$records = $this->Record->find('list', array(
+							'fields' => array('Record.id', 'Record.name'),
 							'limit' => 10,
 							'offset'=> 10,
 							'order' => 'Record.id ASC',
-						));*/
-			
-			$records = $this->Record->find('all');
-			
-			return json_encode($records);
-		}
+						));
+			return json_encode(array ('records'=>$records));
+		}*/
 		
 		
 // 		public function update(){

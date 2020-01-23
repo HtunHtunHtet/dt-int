@@ -7,43 +7,23 @@
 				<th>NAME</th>	
 			</tr>
 		</thead>
-		<!--<tbody>
-			<?php /*foreach($records as $record):*/?>
+		<tbody>
+			<?php foreach($records as $key=>$record):?>
 			<tr>
-				<td><?php /*echo $record['Record']['id']*/?></td>
-				<td><?php /*echo $record['Record']['name']*/?></td>
+				<td><?php echo $key?></td>
+				<td><?php echo $record?></td>
 			</tr>	
-			<?php /*endforeach;*/?>
-		</tbody>-->
+			<?php endforeach;?>
+		</tbody>
 	</table>
 </div>
 <?php $this->start('script_own')?>
 <script>
     let routeName  = '<?= Router::url(["controller"=>"record","action"=>"getRecords"]); ?>';
     $(document).ready(function(){
-    
-        /*
-            $.ajax({
-                url: routeName
-            }).success(function (result) {
-               console.log(result);
-            });
-            */
-        
         $("#table_records").dataTable({
-            ajax : {
-                url: routeName,
-                "processing": true,
-                "serverSide": true,
-                columns:[
-                    {data: 'id'},
-                    {data: 'name'}
-                ]
-            }
-        });
         
-
-      
+        });
     })
     </script>
 <?php $this->end()?>
