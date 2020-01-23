@@ -83,18 +83,16 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 	 <?php 
    		echo $this->Html->script('/metronic_new/plugins/jquery-1.10.2.min');
    		echo $this->Html->script('/metronic_new/plugins/jquery-migrate-1.2.1.min');
-   ?>
+    ?>
     <?php 
    		echo $this->Html->script('/metronic_new/plugins/jquery-ui/jquery-ui-1.10.1.custom.min');
    		echo $this->Html->script('/metronic_new/plugins/bootstrap/js/bootstrap.min');
-   		echo $this->Html->script('jquery.dataTables.js?v=2');
+   		//echo $this->Html->script('jquery.dataTables.js?v=2');
+   		echo $this->Html->script('datatables.min.js?v=2');
    		echo $this->Html->script('/metronic_new/plugins/data-tables/DT_bootstrap');
-   		
    		echo $this->Html->script('/metronic_new/plugins/bootstrap-modal/js/bootstrap-modal');
    		echo $this->Html->script('/metronic_new/plugins/bootstrap-modal/js/bootstrap-modalmanager');
-   		
    		echo $this->Html->script('/metronic_new/plugins/jquery.blockui.min');
-   		
    		echo $this->Html->script('own');
    ?>
    

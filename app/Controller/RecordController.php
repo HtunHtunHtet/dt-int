@@ -1,19 +1,42 @@
 <?php
 	class RecordController extends AppController{
 		
+		var $components = array('RequestHandler');
+		
+		
 		public function index(){
 			ini_set('memory_limit','256M');
 			set_time_limit(0);
 			
 			$this->setFlash('Listing Record page too slow, try to optimize it.');
 			
+			//$records = $this->Record->find('all');
+			//$this->set('records',$records);
+			
+			
+			/*$query  = "SELECT * FROM records LIMIT 10,20";
+			$recordTest = $this->Record->query($query);
+			$this->set('records', $recordTest);*/
+			
+			$this->set ('records', array());
+			
+			$this->set('title',__('List Record'));
+		}
+		
+		public function getRecords(){
+			//false auto render template
+			$this->autoRender = false;
+			
+			
+			/*$records = $this->Record->find('all', array(
+							'limit' => 10,
+							'offset'=> 10,
+							'order' => 'Record.id ASC',
+						));*/
 			
 			$records = $this->Record->find('all');
 			
-			$this->set('records',$records);
-			
-			
-			$this->set('title',__('List Record'));
+			return json_encode($records);
 		}
 		
 		

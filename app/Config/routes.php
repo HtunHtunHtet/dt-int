@@ -41,3 +41,10 @@
  * the built-in default routes.
  */
 	require CAKE . 'Config' . DS . 'routes.php';
+	
+/**
+ * Custom Routers
+ */
+	
+	Router::mapResources('record');
+	Router::parseExtensions();
