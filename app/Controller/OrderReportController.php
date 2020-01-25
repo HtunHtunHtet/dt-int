@@ -15,7 +15,26 @@
 
 
 			// To Do - write your own array in this format
-			$order_reports = array('Order 1' => array(
+			$order_reports = array();
+			foreach($orders as $order ) {
+				$orderName = $order['Order']['name'];
+				foreach ( $order['OrderDetail'] as $detail ) {
+					$itemId = $detail['Item']['id'];
+					//find inside portion
+					foreach($portions as $portion) {
+						if ( $itemId == $portion['Item']['id'] ) {
+							foreach ( $portion['PortionDetail'] as $portionList ) {
+								$partName                     = $portionList['Part']['name'];
+								$portionPrice                 = (int)$portionList['value'];
+								$order_reports[$orderName][ $partName ] = $portionPrice;
+							}
+						}
+					}
+					
+				}
+			}
+			
+			/*$order_reports = array('Order 1' => array(
 										'Ingredient A' => 1,
 										'Ingredient B' => 12,
 										'Ingredient C' => 3,
@@ -31,9 +50,10 @@
 								  		'Ingredient I' => 2,
 								  		'Ingredient D' => 6,
 								  	),
-								);
+								);*/
 
 			// ...
+			
 
 			$this->set('order_reports',$order_reports);
 
