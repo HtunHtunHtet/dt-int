@@ -22,23 +22,33 @@ Question: Advanced Input Field</div>
 The table you start with</div>
 
 <table class="table table-striped table-bordered table-hover">
-<thead>
-<th><span id="add_item_button" class="btn mini green addbutton" onclick="addToObj=false">
-											<i class="icon-plus"></i></span></th>
-<th>Description</th>
-<th>Quantity</th>
-<th>Unit Price</th>
-</thead>
+    <thead>
+        <th>
+            <span id="add_item_button" class="btn mini green addbutton" onclick="addToObj=false">
+                <i class="icon-plus"></i>
+            </span>
+        </th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Unit Price</th>
+    </thead>
 
-<tbody>
+<tbody id="tableBody">
 	<tr>
-	<td></td>
-	<td><textarea name="data[1][description]" class="m-wrap  description required" rows="2" ></textarea></td>
-	<td><input name="data[1][quantity]" class=""></td>
-	<td><input name="data[1][unit_price]"  class=""></td>
-	
-</tr>
-
+	    <td></td>
+	    <td>
+           <!-- <textarea name="data[0][description]" class="m-wrap  description required" rows="2" ></textarea>-->
+            <div contenteditable="true" name="data[0][description]" class="editable">Click Me To Change</div>
+        </td>
+	    <td>
+           <!-- <input name="data[0][quantity]" class="">-->
+            <div contenteditable="true" name="data[0][quantity]" class="editable">Click Me To Change</div>
+        </td>
+	    <td>
+           <!-- <input name="data[0][unit_price]"  class="">-->
+            <div contenteditable="true" name="data[0][unit_price]" class="editable">Click Me To Change</div>
+        </td>
+    </tr>
 </tbody>
 
 </table>
@@ -64,11 +74,21 @@ Your browser does not support the video tag.
 <script>
 $(document).ready(function(){
 
+    //dictionary variable
+    var currentData = 0;
+    
 	$("#add_item_button").click(function(){
-		alert("suppose to add a new row");
-		
-
-		});
+        currentData++;
+        var html    = "<tr>" +
+                            "<td></td>"+
+                            "<td><div contenteditable='true' name='data["+currentData+"][description]' class='editable'>Click Me To Change</div></td>"+
+                            "<td><div contenteditable='true' name='data["+currentData+"][quantity]' class='editable'>Click Me To Change</div></td>"+
+                            "<td><div contenteditable='true' name='data["+currentData+"][unit_price]' class='editable'>Click Me To Change</div></td>"+
+                     "</tr>";
+        
+        $("#tableBody").append(html);
+        
+	});
 
 	
 });
