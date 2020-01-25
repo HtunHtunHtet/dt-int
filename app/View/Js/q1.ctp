@@ -65,8 +65,6 @@ Your browser does not support the video tag.
 $(document).ready(function(){
 
 	$("#add_item_button").click(function(){
-
-
 		alert("suppose to add a new row");
 		
 

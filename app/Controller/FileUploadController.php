@@ -52,12 +52,12 @@ class FileUploadController extends AppController {
 								$this->FileUpload->save();
 								
 								//log success
-								CakeLog::info('Successfully added Date : Name = '.$value['Name'].' Email = '.$value['Email']);
+								CakeLog::info('Successfully added Data : Name = '.$value['Name'].' Email = '.$value['Email']);
 							}
+							$this->setSuccess('Data Imported');
+						}else {
+							$this->setError('Data Import Failed');
 						}
-						
-						//$this->Session->setFlash('Data Imported', 'flash_success');
-						$this->setSuccess('Data Imported');
 						
 						
 					}
